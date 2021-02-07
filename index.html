@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
+		<link rel="icon" href="data:,">
 		<title>three.js canvas - geometry - earth</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -63,9 +65,9 @@
 				// earth
 
 				var loader = new THREE.TextureLoader();
-				loader.load( 'textures/land_ocean_ice_cloud_2048.jpg', function ( texture ) {
+				loader.load( 'textures/centroid_visualisation.png', function ( texture ) {
 
-					var geometry = new THREE.SphereGeometry( 200, 20, 20 );
+					var geometry = new THREE.SphereGeometry( 200, 64, 64 );
 
 					var material = new THREE.MeshBasicMaterial( { map: texture } );
 					var mesh = new THREE.Mesh( geometry, material );
@@ -82,10 +84,8 @@
 
 				// controls
 				const controls = new OrbitControls( camera, renderer.domElement );
-				controls.addEventListener( 'change', render );
-				controls.minDistance = 10;
-				controls.maxDistance = 50;
-				controls.enablePan = false;
+				controls.minDistance = 225;
+				controls.maxDistance = 500;
 
 				// Performance overlay
 				stats = new Stats();
@@ -114,6 +114,10 @@
 
 
 			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render()
 
 				stats.update();
 
