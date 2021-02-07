@@ -75,6 +75,13 @@
 
 				} );
 
+				// controls
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				controls.minDistance = 10;
+				controls.maxDistance = 50;
+				controls.enablePan = false;
+
 				// shadow
 
 				// var canvas = document.createElement( 'canvas' );
@@ -108,7 +115,7 @@
 				// group.add( mesh );
 
 				renderer = new THREE.CanvasRenderer();
-				renderer.setClearColor( 0xffffff );
+				renderer.setClearColor( 0x333333 );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 				container.appendChild( renderer.domElement );
