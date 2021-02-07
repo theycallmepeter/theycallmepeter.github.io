@@ -33,16 +33,14 @@
 
 		<div id="container"></div>
 		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - earth demo</div>
-		<!-- <script src="/libs/stats.min.js"></script> -->
 
 		<script type="module">
 			import * as THREE from 'https://unpkg.com/three@0.125.2/build/three.module.js';
 			import { OrbitControls } from 'https://unpkg.com/three@0.125.2/examples/jsm/controls/OrbitControls.js';
-			import {Stats} from "/libs/stats.min.js";
+			import { Stats } from "/libs/stats.min.js";
 			var container, stats;
 			var camera, scene, renderer;
 			var group;
-			var mouseX = 0, mouseY = 0;
 
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
@@ -117,18 +115,11 @@
 
 			function animate() {
 
-				requestAnimationFrame( animate );
-
-				render();
 				stats.update();
 
 			}
 
 			function render() {
-
-				camera.lookAt( scene.position );
-
-				// group.rotation.y -= 0.005;
 
 				renderer.render( scene, camera );
 
