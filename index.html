@@ -33,20 +33,12 @@
 
 		<div id="container"></div>
 		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - earth demo</div>
-		<!-- <script src="/build/three.min.js"></script>
-		<script src="/libs/stats.min.js"></script> -->
-		<!-- <script type="module">
-	    	import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-		</script>
-		<script type="module">
-			import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
-
-		</script> -->
+		<!-- <script src="/libs/stats.min.js"></script> -->
 
 		<script type="module">
-			import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-			import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
-
+			import * as THREE from 'https://unpkg.com/three@0.125.2/build/three.module.js';
+			import { OrbitControls } from 'https://unpkg.com/three@0.125.2/examples/jsm/controls/OrbitControls.js';
+			import {Stats} from "/libs/stats.min.js";
 			var container, stats;
 			var camera, scene, renderer;
 			var group;
@@ -83,13 +75,6 @@
 
 				} );
 
-				// controls
-				const controls = new OrbitControls( camera, renderer.domElement );
-				controls.addEventListener( 'change', render );
-				controls.minDistance = 10;
-				controls.maxDistance = 50;
-				controls.enablePan = false;
-
 				// shadow
 
 				// var canvas = document.createElement( 'canvas' );
@@ -122,12 +107,20 @@
 				// mesh.rotation.x = - Math.PI / 2;
 				// group.add( mesh );
 
-				renderer = new THREE.CanvasRenderer();
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setClearColor( 0x333333 );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 				container.appendChild( renderer.domElement );
 
+				// controls
+				const controls = new OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				controls.minDistance = 10;
+				controls.maxDistance = 50;
+				controls.enablePan = false;
+
+				// Performance overlay
 				stats = new Stats();
 				stats.domElement.style.position = 'absolute';
 				stats.domElement.style.top = '0px';
