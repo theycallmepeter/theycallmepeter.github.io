@@ -2,11 +2,16 @@
 <html lang="en">
 
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="data:,">
-		<title>three.js canvas - geometry - earth</title>
+		<title>Map of the Internet</title>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+<!-- 		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css"> -->
+		<script type="text/javascript" src="./build/dat.gui.min.js"></script>
 		<style>
+
 			body {
 				color: #808080;
 				font-family:Monospace;
@@ -31,8 +36,9 @@
 
 		</style>
 	</head>
-	<body>
 
+	<body>
+		    
 		<div id="container"></div>
 		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - AS graph visualisation</div>
 
@@ -65,12 +71,13 @@
 				// earth
 
 				var loader = new THREE.TextureLoader();
-				loader.load( 'textures/centroid_visualisation.jpg', function ( texture ) {
+				var mesh;
+				loader.load( 'textures/2020_12_08/ipv4_platecarree.jpg', function ( texture ) {
 
+					texture.needsUpdate = true;
 					var geometry = new THREE.SphereGeometry( 200, 64, 64 );
-
 					var material = new THREE.MeshBasicMaterial( { map: texture } );
-					var mesh = new THREE.Mesh( geometry, material );
+					mesh = new THREE.Mesh( geometry, material );
 					group.add( mesh );
 
 				} );
@@ -93,6 +100,52 @@
 				stats.domElement.style.top = '0px';
 				container.appendChild( stats.domElement );
 
+				const params = {
+					date: '2020_12_08/',
+					ipv4: true,
+					ipv6: false,
+					edges: true,
+				};
+
+				//GUI
+				const gui = new dat.GUI();
+				gui.add(params, 'date', { "Dec 2020": '2020_12_08/', "July 2017": '2017_06_06/'} ).onChange( changeTexture );
+				gui.add(params, 'ipv4').name('IPv4').listen().onChange(function(){changeIPVersion("ipv4")});
+				gui.add(params, 'ipv6').name('IPv6').listen().onChange(function(){changeIPVersion("ipv6")});
+				gui.add(params, 'edges').onChange( changeTexture );
+
+				function changeIPVersion(ver){
+					params.ipv4 = false
+					params.ipv6 = false
+					params[ver] = true
+					changeTexture()
+				}
+
+				function changeTexture(){
+					var ver;
+					var filename;
+					if (params.ipv6) ver = "ipv6_";
+					if (params.ipv4) ver = "ipv4_";
+					if (params.edges) {
+						filename = "platecarree.jpg";
+					} else {
+						filename = "platecarree_centroid.png";
+					}
+					loader.load( ['./textures/', params.date, ver, filename].join('') , function ( texture ) {
+						mesh.material.map = texture;
+    					mesh.material.needsUpdate = true;
+						// texture.needsUpdate = true;
+						// var geometry = new THREE.SphereGeometry( 200, 64, 64 );
+						// var material = new THREE.MeshBasicMaterial( { map: texture } );
+						// var mesh = new THREE.Mesh( geometry, material );
+						// group.add( mesh );
+
+					},
+					xhr => {
+					    //Download Progress
+					    console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+					} );
+				}
 
 				//
 
