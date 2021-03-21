@@ -107,7 +107,7 @@ a.pure-button-primary {
 }
 
 .home-menu .pure-menu-heading {
-    color: #1985a1;
+    color: #06bcc1;
     font-weight: 400;
     font-size: 120%;
 }
@@ -192,7 +192,7 @@ a.pure-button-primary {
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
-    top: 87%;
+    top: 92%;
     width: 100%;
     min-height: 12%;
     z-index: 2;
@@ -210,7 +210,7 @@ a.pure-button-primary {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin: 1em 0 1em;
+    margin: 0.5em 0 1em;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -242,6 +242,17 @@ a.pure-button-primary {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+p a {
+    color: #1985a1;
+}
+
+#introduction {
+    padding: 0.5em 1em 0.5em;
+    background-color: rgba(33,37,41, 0.35);
+    border-radius: 5px;
+
 }
 
 /*
