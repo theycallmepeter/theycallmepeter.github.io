@@ -6,41 +6,103 @@
 		<link rel="icon" href="data:,">
 		<title>Map of the Internet</title>
 		<meta charset="utf-8">
-	<!-- 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
-<!-- 		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/base-min.css"> -->
+		<!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css">
+
+		<link rel="stylesheet" href="style.css">
 		<script type="text/javascript" src="./build/dat.gui.min.js"></script>
-		<style>
 
-			body {
-				color: #808080;
-				font-family:Monospace;
-				font-size:13px;
-				text-align:center;
-
-				background-color: #ffffff;
-				margin: 0px;
-				overflow: hidden;
-			}
-
-			#info {
-				position: absolute;
-				top: 0px; width: 100%;
-				padding: 5px;
-			}
-
-			a {
-
-				color: #0080ff;
-			}
-
-		</style>
 	</head>
 
 	<body>
-		    
-		<div id="container"></div>
-		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - AS graph visualisation</div>
+
+		<div class="header">
+		    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+		        <a class="pure-menu-heading" href="">Peter's corner</a>
+
+		        <ul class="pure-menu-list">
+		            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">About me</a></li>
+		            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact me</a></li>
+		        </ul> 
+		    </div>
+		</div>
+
+		<div class="splash-container" id="container">
+		    <div class="splash" id="introduction">
+		        <h1 class="splash-head">Map of the Internet</h1>
+		        <p class="splash-subhead">
+		            You can find the controls to the visualisation in the top right corner. Hover over the about section and scroll down to see an overview of what is represented on the map. 
+		        </p>
+		        <p>
+		            <a onclick="removeintro()" class="pure-button pure-button-primary">Get Started</a>
+		        </p>
+		    </div>
+		</div>
+
+		<div class="content-wrapper">
+		    <div class="content brightribbon">
+		        <h2 class="content-head is-center">vvv Map information vvv</h2>
+
+		        <div class="pure-g">
+		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+		                <h3 class="content-subhead">
+		                    <i class="fa fa-rocket"></i>
+		                    Get Started Quickly
+		                </h3>
+		                <p>
+		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                </p>
+		            </div>
+		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+		                <h3 class="content-subhead">
+		                    <i class="fa fa-mobile"></i>
+		                    Responsive Layouts
+		                </h3>
+		                <p>
+		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                </p>
+		            </div>
+		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+		                <h3 class="content-subhead">
+		                    <i class="fa fa-th-large"></i>
+		                    Modular
+		                </h3>
+		                <p>
+		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                </p>
+		            </div>
+		            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+		                <h3 class="content-subhead">
+		                    <i class="fa fa-check-square-o"></i>
+		                    Plays Nice
+		                </h3>
+		                <p>
+		                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+		                </p>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="ribbon l-box-lrg pure-g">
+		        <!-- <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+		            <img width="300" alt="File Icons" class="pure-img-responsive" src="/img/common/file-icons.png">
+		        </div> -->
+		        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+		            <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+
+		            <p>
+		                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		                consequat. Duis aute irure dolor.
+		            </p>
+		        </div>
+		    </div>
+		</div>
+
 
 		<script type="module">
 			import * as THREE from 'https://unpkg.com/three@0.125.2/build/three.module.js';
@@ -60,7 +122,7 @@
 
 				container = document.getElementById( 'container' );
 
-				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight / 0.87, 1, 2000 );
 				camera.position.z = 500;
 
 				scene = new THREE.Scene();
@@ -85,14 +147,17 @@
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setClearColor( 0x333333 );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
+				renderer.setSize( window.innerWidth, window.innerHeight * 0.87);
+				// renderer.domElement.classList.add('splash');
 				container.appendChild( renderer.domElement );
 
 				// controls
-				const controls = new OrbitControls( camera, renderer.domElement );
+				const controls = new OrbitControls( camera, renderer.domElement);
 				controls.minDistance = 225;
 				controls.maxDistance = 500;
+				controls.enablePan = false;
+
+
 
 				// Performance overlay
 				stats = new Stats();
@@ -108,11 +173,16 @@
 				};
 
 				//GUI
-				const gui = new dat.GUI();
-				gui.add(params, 'date', { "Dec 2020": '2020_12_08/', "July 2017": '2017_06_06/'} ).onChange( changeTexture );
+				const gui = new dat.GUI({autoPlace: false});
+				gui.add(params, 'date', { "Dec 2020": '2020_12_08/', "July 2017": '2017_06_06/'} ).name('Date').onChange( changeTexture );
 				gui.add(params, 'ipv4').name('IPv4').listen().onChange(function(){changeIPVersion("ipv4")});
 				gui.add(params, 'ipv6').name('IPv6').listen().onChange(function(){changeIPVersion("ipv6")});
-				gui.add(params, 'edges').onChange( changeTexture );
+				gui.add(params, 'edges').name('Edges').onChange( changeTexture );
+				gui.domElement.style.position = 'absolute';
+				gui.domElement.style.top = '0px';
+				gui.domElement.style.right = '0px'
+				gui.domElement.style.float = 'right';
+				container.appendChild(gui.domElement);
 
 				function changeIPVersion(ver){
 					params.ipv4 = false
@@ -158,10 +228,10 @@
 				windowHalfX = window.innerWidth / 2;
 				windowHalfY = window.innerHeight / 2;
 
-				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.aspect = window.innerWidth / window.innerHeight / 0.87;
 				camera.updateProjectionMatrix();
 
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( window.innerWidth, window.innerHeight * 0.87);
 
 			}
 
@@ -183,6 +253,13 @@
 			}
 
 
+		</script>
+
+		<script type="text/javascript">
+			function removeintro(){
+				var obj = document.getElementById("introduction");
+				obj.remove();
+			}
 		</script>
 
 	</body>
