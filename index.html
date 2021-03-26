@@ -90,13 +90,19 @@
 		            <h2 class="content-head content-head-ribbon">Acknowledgements</h2>
 
 		            <p>
-		                This visualisation uses <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/"> GeoLite2 by MaxMind </a> to geolocate the networks. 
+		                This visualisation uses <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/"> GeoLite2 by MaxMind </a> to locate the networks. 
 		            </p>
 		            <p>
 		                This page is based on the landing page layout from <a href="https://purecss.io/">purecss.io</a>
 		            </p>
 		            <p>
 		                The rendering is made possible by <a href="threejs.org">three.js</a>
+		            </p>
+		            <p> 
+		            	The data was collected using the BGPStream framework by <a href="https://www.caida.org/home/">CAIDA</a>
+		            </p>
+		            <p> 
+		            	The data itself is available thanks to <a href="http://www.routeviews.org/routeviews/">routeviews</a> and<a href="https://www.ripe.net/analyse/internet-measurements/routing-information-service-ris"> RIPE RIS</a>
 		            </p>
 		        </div>
 		    </div>
@@ -203,12 +209,6 @@
 					loader.load( ['./textures/', params.date, ver, filename].join('') , function ( texture ) {
 						mesh.material.map = texture;
     					mesh.material.needsUpdate = true;
-						// texture.needsUpdate = true;
-						// var geometry = new THREE.SphereGeometry( 200, 64, 64 );
-						// var material = new THREE.MeshBasicMaterial( { map: texture } );
-						// var mesh = new THREE.Mesh( geometry, material );
-						// group.add( mesh );
-
 					},
 					xhr => {
 					    //Download Progress
