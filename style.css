@@ -28,6 +28,9 @@ label {
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
+    border: 5px solid #aaa;
+    border-radius: 5px;
+    margin:auto;
 }
 
 /*
@@ -217,6 +220,8 @@ a.pure-button-primary {
 .content-head-ribbon {
     color: #1985a1;
 }
+
+
 
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
