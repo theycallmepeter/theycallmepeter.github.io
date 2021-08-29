@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<div class="home">
+        <div class="content brightribbon">
+
+        {%- if site.posts.size > 0 -%}
+            <h3 class="content-head is-center">{{ page.list_title | default: "Blog posts" }}</h3>
+            <div class="pure-g ">
+                {%- for post in site.posts -%}
+                <div class="pure-u-1 is-center">
+                    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                    <h3>
+                        {{ post.date | date: date_format }} -
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                        {{ post.title | escape }}
+                    </a>
+                    </h3>
+                    {%- if site.show_excerpts -%}
+                    {{ post.excerpt }}
+                    {%- endif -%}
+                </div>
+                {%- endfor -%}
+            </div>
+
+            <p class="rss-subscribe is-center">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+        {%- endif -%}
+        </div>
+</div>
