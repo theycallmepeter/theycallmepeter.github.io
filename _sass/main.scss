@@ -5,6 +5,16 @@
 }
 
 /*
+ * -- ICONS FOR SOCIALS --
+ */
+svg {
+    height: 16px;
+    width: 16px;
+    margin: 0 2em;
+    fill: #1985a1;
+  }
+
+/*
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
@@ -195,7 +205,7 @@ a.pure-button-primary {
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
-    top: 95%;
+    top: 92%;
     left: 0%;
     width: 100%;
     min-height: 12%;

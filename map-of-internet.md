@@ -1,6 +1,6 @@
 ---
 title: A Map of the Internet
-layout: default
+layout: map-of-internet
 permalink: /map-of-internet/
 ---
 
@@ -115,8 +115,10 @@ permalink: /map-of-internet/
 			</p>
 		</div>
 	</div>
-</div>
 
+	{%- include footer.html -%}
+	
+</div>
 
 <script type="module">
 	import * as THREE from 'https://unpkg.com/three@0.125.2/build/three.module.js';
