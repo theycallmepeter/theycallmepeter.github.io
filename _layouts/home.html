@@ -6,7 +6,7 @@ layout: default
         <div class="content brightribbon">
 
         {%- if site.posts.size > 0 -%}
-            <h3 class="content-head is-center">{{ page.list_title | default: "Blog posts" }}</h3>
+            <h2 class="content-head is-center">{{ page.list_title | default: "Blog posts" }}</h2>
             <div class="pure-g ">
                 {%- for post in site.posts -%}
                 <div class="pure-u-1 is-center">
