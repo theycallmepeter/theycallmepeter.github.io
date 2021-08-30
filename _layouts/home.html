@@ -3,10 +3,10 @@ layout: default
 ---
 
 <div class="home">
-        <div class="content brightribbon">
+        <div class="content-normal brightribbon">
 
         {%- if site.posts.size > 0 -%}
-            <h2 class="content-head is-center">{{ page.list_title | default: "Blog posts" }}</h2>
+            <h2 class="content-head content-head-ribbon is-center">{{ page.list_title | default: "Blog posts" }}</h2>
             <div class="pure-g ">
                 {%- for post in site.posts -%}
                 <div class="pure-u-1 is-center">
