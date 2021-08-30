@@ -72,7 +72,7 @@ permalink: /map-of-internet/
 					CAIDA-style visualisation
 				</h3>
 				<p>
-					This visualisation uses the same data as the main visualisation, however it plots it using a different style. Here the angle from the centre is the longitude of where the network is located, however the distance from the centre represents how important the network is. When a network is close to the centre it means that many networks use it to communicate through - the more central it is. See the original by CAIDA <a href=https://www.caida.org/research/topology/as_core_network/2017>here</a>. 
+					This visualisation uses the same data as the main visualisation, however it plots it using a different style. Here the angle from the centre is the longitude of where the network is located, however the distance from the centre represents how important the network is. When a network is close to the centre it means that many networks use it to communicate through - the more central it is. See the original by CAIDA <a href="https://www.caida.org/research/topology/as_core_network/2017">here</a>. 
 				</p>
 				<a href = "/assets/images/2020_12_08/ipv4_caida_plot.png" id="caidalink"><img alt="CAIDA-style visualisation" class="pure-img-responsive" src="/assets/images/2020_12_08/ipv4_caida_plot.png" id="caidafile" loading=lazy></a>
 
@@ -117,7 +117,7 @@ permalink: /map-of-internet/
 	</div>
 
 	{%- include footer.html -%}
-	
+
 </div>
 
 <script type="module">
